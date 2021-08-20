@@ -1,10 +1,18 @@
 import React, { Component } from 'react'
-import { Search } from './Search/Search';
+import { Col, Row } from 'react-bootstrap';
+import { WeatherProvider } from '../context';
+import Search from './Search/Search';
+import Today from './Today/Today';
 
 export default class Home extends Component {
     render(){
         return(
-            <Search/>
+            <WeatherProvider>
+                <Search/>
+                <Row>
+                    <Col><Today/></Col>
+                </Row>
+            </WeatherProvider>
         );
     }
 }
