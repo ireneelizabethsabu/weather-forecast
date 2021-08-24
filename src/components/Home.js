@@ -9,7 +9,10 @@ const Home = () => {
     lat: "51.509865",
     lon: "-0.118092",
   });
-  const [unit, setUnit] = useState("metric");
+  const [units, setUnits] = useState({
+    unit: "metric",
+    speed: "m/s"
+  });
   const [weather, setWeather] = useState(null);
 
   useEffect(() => {
@@ -19,7 +22,7 @@ const Home = () => {
           params: {
             lat: coor.lat,
             lon: coor.lon,
-            units: unit,
+            units: units.unit,
             appid: process.env.REACT_APP_APIKEY
           }
         });
@@ -28,14 +31,14 @@ const Home = () => {
         console.log(e);
       }
     })();
-  }, [coor,unit]);
+  }, [coor,units]);
 
   return (
     <>
       <Search />
       <Row>
         <Col>
-          <Today weather={weather} unit={unit} setUnit={setUnit}/>
+          <Today weather={weather} units={units} setUnits={setUnits}/>
         </Col>
       </Row>
     </>
