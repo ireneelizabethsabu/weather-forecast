@@ -6,7 +6,7 @@ const Today = ({ weather, units, setUnits }) => {
 
     return (
         weather && (
-            <Jumbotron className="py-4">
+            <Jumbotron className="py-4 mb-0">
                 <Row className="font_xxl justify-content-center">
                     <img src={`http://openweathermap.org/img/wn/${weather.current.weather[0].icon}@2x.png`} alt="weather" />
                     <span>{weather.current.temp}&deg;</span>

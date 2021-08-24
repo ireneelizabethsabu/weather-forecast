@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Col, Row } from "react-bootstrap";
 import Search from "./Search/Search";
 import Today from "./Today/Today";
+import Daily from './Daily/Daily';
 import axios from "axios";
 
 const Home = () => {
@@ -35,12 +35,9 @@ const Home = () => {
 
   return (
     <>
-      <Search />
-      <Row>
-        <Col>
-          <Today weather={weather} units={units} setUnits={setUnits}/>
-        </Col>
-      </Row>
+      <Search setCoor={setCoor}/>
+      <Today weather={weather} units={units} setUnits={setUnits}/>
+      <Daily weather={weather} />
     </>
   );
 };

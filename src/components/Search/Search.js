@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Navbar,FormControl} from "react-bootstrap";
 
-const Search = () => {
+const Search = ({setCoor}) => {
   const [city,setCity] = useState('London');
   
   const handleChange = (e) => {
