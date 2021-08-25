@@ -8,6 +8,8 @@
 .day-card:hover{
     border: 2px solid gray;
 }
-
+.selected{
+    background-color: #8794a9;
+}
 
 

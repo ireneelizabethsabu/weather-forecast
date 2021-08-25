@@ -13,7 +13,7 @@ const Daily = ({ daily,timezone,unit}) => {
         <span className="font_l">DAILY</span>
         <Row>
           {daily.map((day) => (
-            <DailyCard key={day.dt} day={day} setDaydetails={setDaydetails} />
+            <DailyCard key={day.dt} day={day} daydetails={daydetails} setDaydetails={setDaydetails} />
           ))}
         </Row>
         <DayDetail daydetails={daydetails} timezone={timezone} unit={unit}/>
