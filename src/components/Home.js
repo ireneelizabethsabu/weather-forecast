@@ -34,11 +34,11 @@ const Home = () => {
   }, [coor,units]);
 
   return (
-    <>
+    weather && (<> 
       <Search setCoor={setCoor}/>
-      <Today weather={weather} units={units} setUnits={setUnits}/>
-      <Daily weather={weather} />
-    </>
+      <Today current={weather.current} units={units} setUnits={setUnits}/>
+      <Daily daily={weather.daily} timezone={weather.timezone} unit={units.speed}/>
+    </>)
   );
 };
 

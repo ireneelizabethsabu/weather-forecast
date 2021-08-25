@@ -1,15 +1,16 @@
 import React from "react";
 import { Jumbotron, Row } from "react-bootstrap";
+import { getDirection } from "../../helpers";
 import "./Today.css";
 
-const Today = ({ weather, units, setUnits }) => {
+const Today = ({ current, units, setUnits }) => {
 
     return (
-        weather && (
+        current && (
             <Jumbotron className="py-4 mb-0">
                 <Row className="font_xxl justify-content-center">
-                    <img src={`http://openweathermap.org/img/wn/${weather.current.weather[0].icon}@2x.png`} alt="weather" />
-                    <span>{weather.current.temp}&deg;</span>
+                    <img src={`http://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`} alt="weather" />
+                    <span>{current.temp}&deg;</span>
                     <div className="font_l mx-2">
                         <span className={`${units.unit === 'metric' ? 'selected' : ''} active-unit px-2`} onClick={() => setUnits({
                             unit: "metric",
@@ -23,13 +24,13 @@ const Today = ({ weather, units, setUnits }) => {
                     </div>
                 </Row>
                 <Row className="justify-content-center">
-                    <span className="font_m">{weather.current.weather[0].description}</span>
+                    <span className="font_m">{current.weather[0].description}</span>
                 </Row>
                 <Row className="justify-content-center pt-1">
-                    <span className="px-2 text-center">Feels like <br /> {weather.current.feels_like}&deg;</span>
-                    <span className="px-2 text-center">Wind <br /> {weather.current.wind_speed} {units.speed}</span>
-                    <span className="px-2 text-center">Visibility <br /> {weather.current.visibility} m</span>
-                    <span className="px-2 text-center">Pressure <br /> {weather.current.pressure} hPa</span>
+                    <span className="px-2 text-center">Feels like <br /> {current.feels_like}&deg;</span>
+                    <span className="px-2 text-center">Wind Speed<br /> {current.wind_speed} {units.speed} {getDirection(current.wind_deg)}</span>
+                    <span className="px-2 text-center">Visibility <br /> {current.visibility} m</span>
+                    <span className="px-2 text-center">Pressure <br /> {current.pressure} hPa</span>
                 </Row>
             </Jumbotron>
         )
