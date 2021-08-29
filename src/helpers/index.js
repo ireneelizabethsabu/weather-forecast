@@ -29,9 +29,10 @@ const getuvIndex = (index) => {
 }
     
 const getDirection = (deg) => {
-  var arr = ['↑ N', '↗ NE', '→ E', '↘ SE', '↓ S', '↙ SW', '← W', '↖ NW'];
-  var val = Math.round(deg / 45);
-  return arr[val % 8];
+  //var arr = ['↑ N', '↗ NE', '→ E', '↘ SE', '↓ S', '↙ SW', '← W', '↖ NW'];
+  var arr = ["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"]
+  var val = Math.floor((deg / 22.5) + 0.5);
+  return arr[val % 16];
 }
 
 

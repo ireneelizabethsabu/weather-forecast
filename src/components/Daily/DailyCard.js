@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { Col } from "react-bootstrap";
-
-const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+import moment from 'moment-timezone';
 
 const DailyCard = ({ day, daydetails, setDaydetails }) => {
-  var date = new Date(day.dt * 1000);
+  var date = moment(day.dt * 1000);
   return (
     <Col
-      className={`text-center day-card m-2 p-2 ${daydetails === day ? "selected" : ""}`}
+      className={`text-center day-card my-1 p-2 ${daydetails === day ? "selected" : ""}`}
       onClick={() => {
         setDaydetails(day);
       }}
     >
       <div className="font_s">
-        {weekDays[date.getDay()]} {date.getDate()}
+        {date.format('ddd')} {date.date()}
       </div>
       <img
         className="carousel-img"
@@ -21,8 +20,8 @@ const DailyCard = ({ day, daydetails, setDaydetails }) => {
         alt="weather"
       />
       <div>
-        <span className="font_s pr-2">{day.temp.max}&deg;</span>
-        <span className="font_xs">{day.temp.min}&deg;</span>
+        <span className="font_s pr-2">{Math.round(day.temp.max * 10) / 10}&deg;</span>
+        <span className="font_xs">{Math.round(day.temp.min * 10) / 10}&deg;</span>
       </div>
       <div>{day.weather[0].description}</div>
     </Col>

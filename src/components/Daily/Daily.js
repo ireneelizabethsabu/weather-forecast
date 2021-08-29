@@ -1,21 +1,23 @@
 import React, { useState } from "react";
-import { Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import DailyCard from "./DailyCard";
 import "./Daily.css";
 import DayDetail from "../DayDetail/DayDetail";
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import {dailyresponsive} from '../../helpers/carousel';
 
 const Daily = ({ daily,timezone,unit}) => {
   const [daydetails, setDaydetails] = useState(daily[0]);
-  
   return (
     daily && (
-      <Container fluid className="my-3 px-4">
+      <Container  fluid className="my-3 px-3">
         <span className="font_l">DAILY</span>
-        <Row>
+        <Carousel responsive={dailyresponsive} removeArrowOnDeviceType={['smallScreen','superSmallScreen']}>
           {daily.map((day) => (
             <DailyCard key={day.dt} day={day} daydetails={daydetails} setDaydetails={setDaydetails} />
           ))}
-        </Row>
+        </Carousel>
         <DayDetail daydetails={daydetails} timezone={timezone} unit={unit}/>
       </Container>
     )

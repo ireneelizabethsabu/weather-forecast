@@ -3,6 +3,7 @@ import Search from "./Search/Search";
 import Today from "./Today/Today";
 import Daily from './Daily/Daily';
 import axios from "axios";
+import Hourly from "./Hourly/Hourly";
 
 const Home = () => {
   const [coor, setCoor] = useState({
@@ -37,6 +38,7 @@ const Home = () => {
     weather && (<> 
       <Search setCoor={setCoor}/>
       <Today current={weather.current} units={units} setUnits={setUnits}/>
+      <Hourly hourly={weather.hourly} timezone={weather.timezone} unit={units.speed}/>
       <Daily daily={weather.daily} timezone={weather.timezone} unit={units.speed}/>
     </>)
   );
