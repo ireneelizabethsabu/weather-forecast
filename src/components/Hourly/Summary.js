@@ -17,7 +17,7 @@ const Summary = ({ time,temp }) => {
     labels: time,
     datasets: [
       {
-        label: "Temperature",
+        label: "Temperature VS Time",
         data: temp,
         fill: false,
         backgroundColor: "transparent",

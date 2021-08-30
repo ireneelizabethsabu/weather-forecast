@@ -11,7 +11,7 @@ const Daily = ({ daily,timezone,unit}) => {
   const [daydetails, setDaydetails] = useState(daily[0]);
   return (
     daily && (
-      <Container  fluid className="my-3 px-3">
+      <Container  fluid className="my-3 px-5">
         <span className="font_l">DAILY</span>
         <Carousel responsive={dailyresponsive} removeArrowOnDeviceType={['smallScreen','superSmallScreen']}>
           {daily.map((day) => (
