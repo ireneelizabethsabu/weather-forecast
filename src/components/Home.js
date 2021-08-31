@@ -2,31 +2,29 @@ import React, { useState, useEffect } from "react";
 import Search from "./Search/Search";
 import Today from "./Today/Today";
 import Daily from './Daily/Daily';
-import axios from "axios";
 import Hourly from "./Hourly/Hourly";
+import { getWeather } from "../api/Api";
 
 const Home = () => {
   const [coor, setCoor] = useState({
-    lat: "51.509865",
-    lon: "-0.118092",
+    lat: 51.509865,
+    lon: -0.118092,
   });
   const [units, setUnits] = useState({
     unit: "metric",
     speed: "m/s"
   });
   const [weather, setWeather] = useState(null);
+  const [location, setLocation] = useState({
+    city: 'London',
+    country: 'United Kingdom',
+    statecode: 'ENG'
+  })
 
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.get(process.env.REACT_APP_WEATHER_URL,{
-          params: {
-            lat: coor.lat,
-            lon: coor.lon,
-            units: units.unit,
-            appid: process.env.REACT_APP_APIKEY
-          }
-        });
+        const response = await getWeather(coor.lat,coor.lon,units.unit)
         setWeather(response.data);
       } catch (e) {
         console.log(e);
@@ -36,8 +34,8 @@ const Home = () => {
 
   return (
     weather && (<> 
-      <Search setCoor={setCoor}/>
-      <Today current={weather.current} units={units} setUnits={setUnits}/>
+      <Search setCoor={setCoor} setLocation={setLocation}/>
+      <Today location={location} current={weather.current} units={units} setUnits={setUnits}/>
       <Hourly hourly={weather.hourly} timezone={weather.timezone} unit={units.speed}/>
       <Daily daily={weather.daily} timezone={weather.timezone} unit={units.speed}/>
     </>)

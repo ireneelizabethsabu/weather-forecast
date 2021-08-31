@@ -1,0 +1,6 @@
+.form-control:focus{
+    box-shadow: none !important;
+}
+.form-control:focus-visible{
+    outline: none !important;
+}

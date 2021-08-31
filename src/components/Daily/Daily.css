@@ -6,10 +6,10 @@
     max-width: 140px !important;
 }
 .day-card:hover{
-    border: 2px solid gray;
+    border: 2px solid rgba(128, 128, 128, 0.479);
 }
 .selected{
-    background-color: #8794a9;
+    background-color: rgba(128, 128, 128, 0.479);
 }
 
 

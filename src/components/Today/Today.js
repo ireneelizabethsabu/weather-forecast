@@ -3,11 +3,14 @@ import { Jumbotron, Row } from "react-bootstrap";
 import { getDirection } from "../../helpers";
 import "./Today.css";
 
-const Today = ({ current, units, setUnits }) => {
-
+const Today = (props) => {
+    const { current, units, setUnits,location } = props;
     return (
         current && (
             <Jumbotron className="py-4 mb-0">
+                <Row className="font_l justify-content-center mb-3">
+                    {location.city}, {location.country} <span className="text-uppercase ml-1"> ({location.statecode})</span>
+                </Row>
                 <Row className="font_xxl justify-content-center">
                     <img src={`http://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`} alt="weather" />
                     <span>{current.temp}&deg;</span>
@@ -23,7 +26,7 @@ const Today = ({ current, units, setUnits }) => {
                         })}>F</span>
                     </div>
                 </Row>
-                <Row className="justify-content-center">
+                <Row className="justify-content-center text-capitalize">
                     <span className="font_m">{current.weather[0].description}</span>
                 </Row>
                 <Row className="justify-content-center pt-1">

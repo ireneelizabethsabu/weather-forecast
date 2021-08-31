@@ -1,6 +1,7 @@
 import React from "react";
 import { Col } from "react-bootstrap";
 import moment from 'moment-timezone';
+import './Daily.css'
 
 const DailyCard = ({ day, daydetails, setDaydetails }) => {
   var date = moment(day.dt * 1000);
@@ -23,7 +24,7 @@ const DailyCard = ({ day, daydetails, setDaydetails }) => {
         <span className="font_s pr-2">{Math.round(day.temp.max * 10) / 10}&deg;</span>
         <span className="font_xs">{Math.round(day.temp.min * 10) / 10}&deg;</span>
       </div>
-      <div>{day.weather[0].description}</div>
+      <div className="text-capitalize">{day.weather[0].description}</div>
     </Col>
   );
 };

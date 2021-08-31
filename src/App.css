@@ -8,7 +8,7 @@
     border-bottom: 1px solid grey;
 }
 .font_xxl{
-    font-size: 48px !important;
+    font-size: 66px !important;
 }
 .font_xl{
     font-size: 32px !important;
@@ -24,5 +24,18 @@
 }
 .font_xs{
     font-size: 14px !important;
+}
+.badge{
+    padding: 0.5rem !important;
+    font-size: 1rem !important;
+    cursor: pointer;
+    border: 2px solid grey;
+    border-radius: 0px !important;
+    background-color: grey !important;
+}
+.badge:hover{
+    background-color: white !important;
+    color: grey;
+    border: 2px solid grey;
 }
 

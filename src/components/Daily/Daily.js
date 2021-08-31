@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Container } from "react-bootstrap";
 import DailyCard from "./DailyCard";
 import "./Daily.css";
@@ -9,6 +9,10 @@ import {dailyresponsive} from '../../helpers/carousel';
 
 const Daily = ({ daily,timezone,unit}) => {
   const [daydetails, setDaydetails] = useState(daily[0]);
+  useEffect(() => {
+    setDaydetails(daily[0])
+  }, [daily])
+
   return (
     daily && (
       <Container  fluid className="my-3 px-5">

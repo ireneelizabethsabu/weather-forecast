@@ -4,7 +4,6 @@ import { getHours } from "../../helpers/index";
 import "react-multi-carousel/lib/styles.css";
 import Summary from "./Summary";
 import Detail from "./Detail";
-import './Hourly.css';
 
 const Hourly = ({ hourly, timezone, unit }) => {
   const [btn, setBtn] = useState("details");
