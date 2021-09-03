@@ -4,6 +4,7 @@ import Today from "./Today/Today";
 import Daily from './Daily/Daily';
 import Hourly from "./Hourly/Hourly";
 import { getWeather } from "../api/Api";
+import Footer from "./Footer/Footer";
 
 const Home = () => {
   const [coor, setCoor] = useState({
@@ -33,12 +34,15 @@ const Home = () => {
   }, [coor,units]);
 
   return (
-    weather && (<> 
+    <div>
       <Search setCoor={setCoor} setLocation={setLocation}/>
-      <Today location={location} current={weather.current} units={units} setUnits={setUnits}/>
-      <Hourly hourly={weather.hourly} timezone={weather.timezone} unit={units.speed}/>
-      <Daily daily={weather.daily} timezone={weather.timezone} unit={units.speed}/>
-    </>)
+      {weather && (<> 
+        <Today location={location} current={weather.current} units={units} setUnits={setUnits}/>
+        <Hourly hourly={weather.hourly} timezone={weather.timezone} unit={units.speed}/>
+        <Daily daily={weather.daily} timezone={weather.timezone} unit={units.speed}/>
+      </>)}
+      <Footer/>
+    </div>
   );
 };
 
