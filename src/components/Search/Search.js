@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Navbar, Col, FormControl, Badge } from "react-bootstrap";
-import { getCitySuggestion } from "../../api/Api";
+import { getCitySuggestion, getCoordinates } from "../../api/Api";
 import Autocomplete from "react-autocomplete";
 import './Search.css'
 
@@ -26,6 +26,23 @@ const Search = ({ setCoor,setLocation }) => {
         .catch((err) => console.log(err));
     }
   };
+
+  const handleSearch = () => {
+    setOpen(false)
+    getCoordinates(city).then(res => {
+        const data = res.data.features[0].properties;
+        console.log(res.data.features[0])
+        setLocation({
+          city: data.city || data.formatted.split(',')[0],
+          country: data.state || data.country || data.formatted.split(',')[1],
+          statecode: data.state_code
+        })
+        setCoor({
+          lat: parseInt(data.lat),
+          lon: parseInt(data.lon)
+        })
+      })
+  }
 
   const handleSubmit = (search) => {
     setCity('');
@@ -93,7 +110,7 @@ const Search = ({ setCoor,setLocation }) => {
           open={open}
         />
       </Col>
-      <Badge variant="dark">Search</Badge>
+      <Badge variant="dark" onClick={() => handleSearch()}>Search</Badge>
     </Navbar>
   );
 };

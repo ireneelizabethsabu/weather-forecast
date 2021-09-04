@@ -12,12 +12,23 @@ export const getWeather = (lat,lon,unit) => {
 }
 
 export const getCitySuggestion = async (text) => {
-    return await axios.get(process.env.REACT_APP_AUTOCOMPLETE_URL,{
+    return await axios.get(process.env.REACT_APP_GEOAPIFY_URL + "/autocomplete",{
         params: {
             text: text,
-            apiKey: process.env.REACT_APP_AUTOCOMPLETE_APIKEY,
+            apiKey: process.env.REACT_APP_GEOAPIFY_APIKEY,
             lang: 'en',
             limit: 4
+        }
+    });
+}
+
+export const getCoordinates = async (text) => {
+    return await axios.get(process.env.REACT_APP_GEOAPIFY_URL + "/search",{
+        params: {
+            text: text,
+            apiKey: process.env.REACT_APP_GEOAPIFY_APIKEY,
+            lang: 'en',
+            limit: 1,
         }
     });
 }
