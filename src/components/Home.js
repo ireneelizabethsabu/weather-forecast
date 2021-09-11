@@ -34,14 +34,14 @@ const Home = () => {
   }, [coor,units]);
 
   return (
-    <div>
-      <Search setCoor={setCoor} setLocation={setLocation}/>
+    <div className="background">
       {weather && (<> 
+        <Search setCoor={setCoor} setLocation={setLocation}/>
         <Today location={location} current={weather.current} units={units} setUnits={setUnits}/>
         <Hourly hourly={weather.hourly} timezone={weather.timezone} unit={units.speed}/>
         <Daily daily={weather.daily} timezone={weather.timezone} unit={units.speed}/>
+        <Footer/>
       </>)}
-      <Footer/>
     </div>
   );
 };

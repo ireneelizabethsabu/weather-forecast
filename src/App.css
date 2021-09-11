@@ -1,14 +1,18 @@
 .App{
     min-width: 460px !important;
 }
+.background{
+    background-image: linear-gradient(to bottom,#0058a575,#0067AF) !important;
+}
 .border-detail{
-    border-top: 1px solid grey;
+    border-top: 2px solid #dfe6e99c;
 }
 .border-detail-bottom{
-    border-bottom: 1px solid grey;
+    border-bottom: 2px solid #dfe6e99c !important;
 }
 .font_xxl{
     font-size: 66px !important;
+    
 }
 .font_xl{
     font-size: 32px !important;
@@ -18,24 +22,31 @@
 }
 .font_m{
     font-size: 24px !important;
+    color: white;
 }
 .font_s{
     font-size: 20px !important;
+    color: white;
 }
 .font_xs{
     font-size: 14px !important;
+    color: white;
+}
+div{
+    color: white;
 }
 .badge{
     padding: 0.5rem !important;
     font-size: 1rem !important;
     cursor: pointer;
-    border: 2px solid grey;
+    border: 0px ;
     border-radius: 0px !important;
-    background-color: grey !important;
+    background-color: #dfe6e99c !important;
+    color: #0058a575 !important;
 }
 .badge:hover{
     background-color: white !important;
-    color: grey;
-    border: 2px solid grey;
+    color: #082D39;
+    border: 0px;
 }
 

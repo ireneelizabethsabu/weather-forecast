@@ -17,7 +17,7 @@ const Detail = ({hourly,timezone,unit}) => {
             <div className="font_m">{Math.round(hour.temp * 10) / 10}&deg;</div>
             <div className="font_xs" style={{height: "45px"}}>{hour.weather[0].description}</div>
             <div>
-              <Drop /> {hour.pop * 100}%
+              <Drop /> {Math.round(hour.pop * 1000)/ 10}%
             </div>
             <div className="border-detail-bottom" style={{height: "50px"}}>
               <span className="mx-1" style={{transform: `rotate(${hour.wind_deg}deg)`,

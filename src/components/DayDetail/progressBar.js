@@ -1,16 +1,16 @@
 const progressbar = {
     root: {},
     path: {
-      stroke: `rgba(62, 152, 199)`,
+      stroke: '#015691',
       strokeLinecap: 'butt',
       transition: 'stroke-dashoffset 0.5s ease 0s',
     },
     trail: {
-      stroke: '#e6e6e6',
+      stroke: '#dfe6e99c',
       strokeLinecap: 'butt',
     },
     text: {  
-      fill: '#212529',
+      fill: '#fff',
       fontSize: '16px',
     }
   }

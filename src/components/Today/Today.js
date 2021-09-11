@@ -5,9 +5,10 @@ import "./Today.css";
 
 const Today = (props) => {
     const { current, units, setUnits,location } = props;
+    
     return (
         current && (
-            <Jumbotron className="py-4 mb-0">
+            <Jumbotron className="pb-5 mb-0">
                 <Row className="font_l justify-content-center mb-3">
                     {location.city}, {location.country} <span className="text-uppercase ml-1"> ({location.statecode})</span>
                 </Row>

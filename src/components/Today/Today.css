@@ -6,4 +6,6 @@
 }
 .jumbotron{
     border-radius: 0rem !important;
+    padding-top: 5rem !important;
+    background-color: transparent !important;
 }

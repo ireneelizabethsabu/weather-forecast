@@ -5,7 +5,6 @@ import {
   CircularProgressbarWithChildren,
 } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import "./DayDetail.css";
 import { progressbar } from "./progressBar";
 import SunDetails from "./SunDetails";
 import MoonDetails from "./MoonDetails";
@@ -38,7 +37,7 @@ const DayDetail = ({ daydetails, timezone, unit }) => {
                     styles={progressbar}
                     value={daydetails.humidity}
                     text={`${daydetails.humidity}%`}
-                    strokeWidth="6"
+                    strokeWidth="6" 
                   />
                 </div>
               </Col>

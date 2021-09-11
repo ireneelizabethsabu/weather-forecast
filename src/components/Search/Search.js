@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar, Col, FormControl, Badge } from "react-bootstrap";
+import { Navbar, Col, FormControl, Button } from "react-bootstrap";
 import { getCitySuggestion, getCoordinates } from "../../api/Api";
 import Autocomplete from "react-autocomplete";
 import './Search.css'
@@ -31,7 +31,7 @@ const Search = ({ setCoor,setLocation }) => {
     setOpen(false)
     getCoordinates(city).then(res => {
         const data = res.data.features[0].properties;
-        console.log(res.data.features[0])
+        setCity('')
         setLocation({
           city: data.city || data.formatted.split(',')[0],
           country: data.state || data.country || data.formatted.split(',')[1],
@@ -63,14 +63,13 @@ const Search = ({ setCoor,setLocation }) => {
   }
 
   const renderMenuFunc = (items, value, style) => {
-    return <div style={{ ...style, ...menustyle }} children={items}/>
+    return <div style={{ ...style, ...menustyle }} children={items} />
   }
 
   const menustyle = {
     borderRadius: "0px",
     boxShadow: "0 2px 12px rgba(0, 0, 0, 0.1)",
-    background: "rgba(255, 255, 255, 0.9)",
-    padding: "0.5rem 0",
+    background: "rgba(223, 230, 233)",
     position: "fixed",
     overflow: "auto",
     maxHeight: "50%",
@@ -78,7 +77,7 @@ const Search = ({ setCoor,setLocation }) => {
   };
 
   return (
-    <Navbar bg="light" expand="sm" className="px-5">
+    <Navbar expand="sm" className="px-5 search-bar fixed-top" >
       <Navbar.Brand>Forecast</Navbar.Brand>
       <Col>
         <Autocomplete
@@ -90,13 +89,14 @@ const Search = ({ setCoor,setLocation }) => {
             <div
               key={item.place_id}
               style={{
-                background: isHighlighted ? "lightgrey" : "white",
+                background: isHighlighted ? "#f2f2f2" : '#dfe6e99c',
+                color: '#015691',
                 padding: "0.2rem 0.8rem",
               }}
             >
               <span>{item.city || item.name || item.state}</span>
               <br />
-              <span className="font_xs">
+              <span className="font_xs "  style={{color: '#015691'}}>
                 {item.state ? `${item.state}, ` : " "}
                 {item.country}
               </span>
@@ -110,7 +110,7 @@ const Search = ({ setCoor,setLocation }) => {
           open={open}
         />
       </Col>
-      <Badge variant="dark" onClick={() => handleSearch()}>Search</Badge>
+      <Button variant="outline-primary" className="search-btn" onClick={() => handleSearch()}>Search</Button>
     </Navbar>
   );
 };
