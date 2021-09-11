@@ -5,7 +5,6 @@ import Daily from './Daily/Daily';
 import Hourly from "./Hourly/Hourly";
 import { getWeather } from "../api/Api";
 import Footer from "./Footer/Footer";
-import { Spinner } from "react-bootstrap";
 
 const Home = () => {
   const [coor, setCoor] = useState({
