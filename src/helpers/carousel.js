@@ -34,25 +34,25 @@ export const dailyresponsive = {
 export const hrresponsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 2000 },
-    items: 16,
+    items: 14,
     slidesToSlide: 8,
     partialVisibilityGutter: 40
   },
   desktop: {
     breakpoint: { max: 2000, min: 1124 },
-    items: 10,
+    items: 8,
     slidesToSlide: 5,
     partialVisibilityGutter: 40
   },
   tablet: {
     breakpoint: { max: 1124, min: 900 },
-    items: 8,
+    items: 6,
     slidesToSlide: 4,
     partialVisibilityGutter: 40
   },
   mobile: {
     breakpoint: { max: 956, min: 700 },
-    items: 6,
+    items: 5,
     slidesToSlide: 3,
     partialVisibilityGutter: 40
   },

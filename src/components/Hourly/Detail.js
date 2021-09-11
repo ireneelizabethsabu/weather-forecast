@@ -6,7 +6,7 @@ import { getHours } from "../../helpers/index";
 
 const Detail = ({hourly,timezone,unit}) => {
     return (
-        <Carousel responsive={hrresponsive} className="mt-3 border-detail" centerMode={true} removeArrowOnDeviceType={'smallScreen'}>
+        <Carousel responsive={hrresponsive} className="mt-3 mx-2 border-detail" centerMode={true} removeArrowOnDeviceType={'smallScreen'}>
         {hourly.slice(0,25).map((hour) => (
           <div key={hour.dt}>
             <img

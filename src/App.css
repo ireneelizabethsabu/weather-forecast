@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Roboto:wght@300&display=swap');
+
 .App{
     min-width: 460px !important;
+    font-family: 'Inter', sans-serif !important;
 }
 .background{
     background-image: linear-gradient(to bottom,#0058a575,#0067AF) !important;

@@ -5,7 +5,7 @@ import Autocomplete from "react-autocomplete";
 import './Search.css'
 import logo from '../../assets/logo.png'
 
-const Search = ({ setCoor,setLocation }) => {
+const Search = ({ setCoor,setLocation,setLoading }) => {
   const [open, setOpen] = useState(false)
   const [city, setCity] = useState("");
   const [options, setOptions] = useState([]);
@@ -42,6 +42,7 @@ const Search = ({ setCoor,setLocation }) => {
           lat: parseInt(data.lat),
           lon: parseInt(data.lon)
         })
+        setLoading(true)
       })
   }
 
@@ -57,6 +58,7 @@ const Search = ({ setCoor,setLocation }) => {
       lat: parseInt(search.split(',')[3]),
       lon: parseInt(search.split(',')[4])
     })
+    setLoading(true)
   };
 
   const inputFunc = (props) => {

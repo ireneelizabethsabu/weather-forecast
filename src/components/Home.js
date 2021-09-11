@@ -5,6 +5,7 @@ import Daily from './Daily/Daily';
 import Hourly from "./Hourly/Hourly";
 import { getWeather } from "../api/Api";
 import Footer from "./Footer/Footer";
+import { Spinner } from "react-bootstrap";
 
 const Home = () => {
   const [coor, setCoor] = useState({
@@ -21,12 +22,14 @@ const Home = () => {
     country: 'United Kingdom',
     statecode: 'ENG'
   })
-
+  const [loading, setLoading] = useState(true)
+  
   useEffect(() => {
     (async () => {
       try {
         const response = await getWeather(coor.lat,coor.lon,units.unit)
         setWeather(response.data);
+        setLoading(false)
       } catch (e) {
         console.log(e);
       }
@@ -34,14 +37,14 @@ const Home = () => {
   }, [coor,units]);
 
   return (
-    <div className="background">
-      {weather && (<> 
-        <Search setCoor={setCoor} setLocation={setLocation}/>
+    <div className="background min-vh-100">
+      {loading === false ? weather && (<> 
+        <Search setCoor={setCoor} setLocation={setLocation} setLoading={setLoading}/>
         <Today location={location} current={weather.current} units={units} setUnits={setUnits}/>
         <Hourly hourly={weather.hourly} timezone={weather.timezone} unit={units.speed}/>
         <Daily daily={weather.daily} timezone={weather.timezone} unit={units.speed}/>
         <Footer/>
-      </>)}
+      </>) : <div></div>}
     </div>
   );
 };
