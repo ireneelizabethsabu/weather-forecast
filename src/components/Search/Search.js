@@ -3,6 +3,7 @@ import { Navbar, Col, FormControl, Button } from "react-bootstrap";
 import { getCitySuggestion, getCoordinates } from "../../api/Api";
 import Autocomplete from "react-autocomplete";
 import './Search.css'
+import logo from '../../assets/logo.png'
 
 const Search = ({ setCoor,setLocation }) => {
   const [open, setOpen] = useState(false)
@@ -78,7 +79,7 @@ const Search = ({ setCoor,setLocation }) => {
 
   return (
     <Navbar expand="sm" className="px-5 search-bar fixed-top" >
-      <Navbar.Brand>Forecast</Navbar.Brand>
+      <Navbar.Brand><img src={logo} alt="logo" width="24"/> Forecast</Navbar.Brand>
       <Col>
         <Autocomplete
           items={options}
@@ -110,7 +111,7 @@ const Search = ({ setCoor,setLocation }) => {
           open={open}
         />
       </Col>
-      <Button variant="outline-primary" className="search-btn" onClick={() => handleSearch()}>Search</Button>
+      <Button variant="outline-primary" className="search-btn px-4" onClick={() => handleSearch()}>Search</Button>
     </Navbar>
   );
 };

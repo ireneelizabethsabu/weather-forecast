@@ -21,3 +21,6 @@
 .search-btn:hover{
     background-color: #3d7bb9 !important;
 }
+.search-btn:focus{
+    box-shadow: none !important;
+}

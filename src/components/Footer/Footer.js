@@ -7,7 +7,7 @@ const Footer = () => {
     
     return(
         <Col className="text-center p-3" >
-            Made with <Heart/> <a href="https://github.com/ireneelizabethsabu" className="mx-1 mr-2">ireneelizabethsabu</a>
+            Made with <Heart/> <a href="https://github.com/ireneelizabethsabu" target="_blank" rel="noreferrer"className="mx-1 mr-2" style={{color: '#dfe6e99c'}}>ireneelizabethsabu</a>
             <Github/>
         </Col>
     );
