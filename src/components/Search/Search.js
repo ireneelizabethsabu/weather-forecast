@@ -61,8 +61,13 @@ const Search = ({ setCoor,setLocation,setLoading }) => {
     setLoading(true)
   };
 
+  const handleCancel = () => {
+    setOpen(false)
+    setCity('')
+  }
+
   const inputFunc = (props) => {
-    return <FormControl {...props}/>
+    return <FormControl {...props}></FormControl>
   }
 
   const renderMenuFunc = (items, value, style) => {
@@ -113,7 +118,9 @@ const Search = ({ setCoor,setLocation,setLoading }) => {
           open={open}
         />
       </Col>
-      <Button variant="outline-primary" className="search-btn px-4" onClick={() => handleSearch()}>Search</Button>
+      <Button variant="outline-primary" className="search-btn px-4 mr-2" onClick={() => handleSearch()}>Search</Button>
+      <Button variant="outline-primary" className="search-btn px-4 " onClick={handleCancel}>Cancel</Button>
+      
     </Navbar>
   );
 };

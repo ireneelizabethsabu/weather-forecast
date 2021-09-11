@@ -15,7 +15,7 @@ const Detail = ({hourly,timezone,unit}) => {
               alt="weather"
             />
             <div className="font_m">{Math.round(hour.temp * 10) / 10}&deg;</div>
-            <div className="font_xs" style={{height: "45px"}}>{hour.weather[0].description}</div>
+            <div className="font_xs" style={{height: "45px",letterSpacing: '0.5px'}}>{hour.weather[0].description}</div>
             <div>
               <Drop /> {Math.round(hour.pop * 1000)/ 10}%
             </div>
