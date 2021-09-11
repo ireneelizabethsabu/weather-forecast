@@ -29,36 +29,39 @@ const Search = ({ setCoor,setLocation,setLoading }) => {
   };
 
   const handleSearch = () => {
-    setOpen(false)
-    getCoordinates(city).then(res => {
-        const data = res.data.features[0].properties;
-        setCity('')
-        setLocation({
-          city: data.city || data.formatted.split(',')[0],
-          country: data.state || data.country || data.formatted.split(',')[1],
-          statecode: data.state_code
+    if(city.length ){
+      setOpen(false)
+      getCoordinates(city).then(res => {
+          const data = res.data.features[0].properties;
+          setCity('')
+          setLocation({
+            city: data.city || data.formatted.split(',')[0],
+            country: data.state || data.country || data.formatted.split(',')[1],
+            statecode: data.state_code
+          })
+          setCoor({
+            lat: parseInt(data.lat),
+            lon: parseInt(data.lon)
+          })
+          setLoading(true)
         })
-        setCoor({
-          lat: parseInt(data.lat),
-          lon: parseInt(data.lon)
-        })
-        setLoading(true)
-      })
+    }
   }
 
   const handleSubmit = (search) => {
-    setCity('');
-    setOpen(false)
-    setLocation({
-      city: search.split(',')[0],
-      country: search.split(',')[1],
-      statecode: search.split(',')[2]
-    })
-    setCoor({
-      lat: parseInt(search.split(',')[3]),
-      lon: parseInt(search.split(',')[4])
-    })
-    setLoading(true)
+    
+      setCity('');
+      setOpen(false)
+      setLocation({
+        city: search.split(',')[0],
+        country: search.split(',')[1],
+        statecode: search.split(',')[2]
+      })
+      setCoor({
+        lat: parseInt(search.split(',')[3]),
+        lon: parseInt(search.split(',')[4])
+      })
+      setLoading(true)
   };
 
   const handleCancel = () => {
@@ -67,7 +70,7 @@ const Search = ({ setCoor,setLocation,setLoading }) => {
   }
 
   const inputFunc = (props) => {
-    return <FormControl {...props}></FormControl>
+    return <FormControl {...props} required/>
   }
 
   const renderMenuFunc = (items, value, style) => {
